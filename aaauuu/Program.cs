@@ -12,7 +12,7 @@ void time(int hour, int minute,int second)
         {
             timer.Dispose();
             Console.Clear();
-            Console.WriteLine("Ну кончился и что?");
+            Console.WriteLine("Время вышло");
             return;
         }
         timeCountDown--;
@@ -21,11 +21,16 @@ void time(int hour, int minute,int second)
     };
     timer.Start();
     Console.ReadLine();
-    Console.WriteLine("Повторить или выйти?");
+    Console.WriteLine("Повторить, изменить время или выйти?");
     var choose = Console.ReadLine();
-    if (choose.Contains("Повт"))
+    if (choose.Contains("Пов"))
     {
-        Console.WriteLine("Часы,минуты,Секунды:");
+        time(0,0,4);
+        Console.ReadKey();
+    }
+    if (choose.Contains("Изм")||choose.Contains("изм"))
+    {
+        Console.WriteLine("Часы,минуты,секунды:");
         hour = int.Parse(Console.ReadLine());
         minute = int.Parse(Console.ReadLine());
         second = int.Parse(Console.ReadLine());
@@ -34,7 +39,7 @@ void time(int hour, int minute,int second)
     }
     else
     {
-        Console.WriteLine("Сам закрой");  
+        Console.WriteLine("Выход...");
     }
     Console.ReadKey();
 }
